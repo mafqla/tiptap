@@ -39,7 +39,9 @@ import { isFunction } from './utilities/isFunction.js'
 
 export * as extensions from './extensions/index.js'
 
+// @ts-ignore
 export interface TiptapEditorHTMLElement extends HTMLElement {
+  // @ts-ignore
   editor?: Editor
 }
 
@@ -340,7 +342,7 @@ export class Editor extends EventEmitter<EditorEvents> {
 
     // Let’s store the editor instance in the DOM element.
     // So we’ll have access to it for tests.
-    const dom = this.view.dom as TiptapEditorHTMLElement
+    const dom = this.view.dom as unknown as TiptapEditorHTMLElement
 
     dom.editor = this
   }
