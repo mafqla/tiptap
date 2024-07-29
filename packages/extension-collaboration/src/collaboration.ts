@@ -1,6 +1,7 @@
 import { Extension } from '@tiptap/core'
 import { EditorView } from '@tiptap/pm/view'
 import {
+  initProseMirrorDoc,
   redo,
   undo,
   ySyncPlugin,
@@ -167,6 +168,7 @@ export const Collaboration = Extension.create<CollaborationOptions>({
     }
 
     const ySyncPluginOptions: YSyncOpts = {
+      mapping: initProseMirrorDoc(fragment, this.editor.schema).mapping,
       ...this.options.ySyncOptions,
       onFirstRender: this.options.onFirstRender,
     }

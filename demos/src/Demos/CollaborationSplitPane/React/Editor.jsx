@@ -109,7 +109,7 @@ const Editor = ({ ydoc, provider, room }) => {
         provider,
       }),
     ],
-  })
+  }, [provider])
 
   useEffect(() => {
     // Update status changes
